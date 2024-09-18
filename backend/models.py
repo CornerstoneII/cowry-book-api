@@ -5,6 +5,7 @@ from pydantic import BaseModel
 
 class User(Base):
     __tablename__ = "users"
+    __table_args__ = {'extend_existing': True}
 
     id = Column(Integer, primary_key=True, index=True)
     firstname = Column(String)
@@ -13,6 +14,7 @@ class User(Base):
 
 class Book(Base):
     __tablename__ = "books"
+    __table_args__ = {'extend_existing': True}
 
     id = Column(Integer, primary_key=True, index=True)
     title = Column(String)
@@ -24,6 +26,7 @@ class Book(Base):
 
 class Borrow(Base):
     __tablename__ = "borrows"
+    __table_args__ = {'extend_existing': True}
 
     id = Column(Integer, primary_key=True, index=True)
     user_id = Column(Integer, ForeignKey("users.id"))
